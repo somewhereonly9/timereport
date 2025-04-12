@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: solid black 1px; */
+
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    background-color: #344f81;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav {
+    background-color: #333;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Espacia los elementos entre sí */
+    padding: 0 20px; /* Añade espacio horizontal */
+    height: 65px; /* Asegura una altura uniforme */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+    flex: 1; /* Permite que los elementos ocupen el espacio disponible */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    height: 100%; /* Asegura que ocupe toda la altura del nav */
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto */
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el contenido */
+    gap: 10px; /* Espacia los elementos dentro del contenedor */
+    margin-left: auto; /* Empuja el contenedor hacia el lado derecho */
+    height: 100%; /* Asegura que ocupe toda la altura del nav */
+}
+
+.container h3 {
+    margin: 0; /* Elimina márgenes para evitar desbordes */
+    color: white; /* Asegura que el texto sea visible */
+    font-size: 16px; /* Ajusta el tamaño del texto */
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto */
+}
+
+.container .btn {
+    padding: 5px 10px; /* Ajusta el tamaño del botón */
+    font-size: 14px; /* Ajusta el tamaño del texto del botón */
+    height: auto; /* Permite que el botón se ajuste automáticamente */
+}
+
+#container {
+    display: flex;
+    height: 75px;
+}
+
+h3 {
+    height: 55px;
+}
+
+footer {
+    background-color: #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para el control de tiempo */
+.time-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.time-controls {
+    display: flex;
+    gap: 20px;
+}
+
+.time-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.time-start-btn {
+    background-color: #e6f0ff;
+    border: 1px solid #2563eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #2563eb;
+    font-size: 18px;
+}
