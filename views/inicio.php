@@ -46,8 +46,6 @@ if(!isset($_SESSION['usuario'])){
 </footer>
 
 
-
-
     <script src="../assets/app.js"></script>
 </body>
 </html>
