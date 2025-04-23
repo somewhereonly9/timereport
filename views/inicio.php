@@ -26,7 +26,7 @@ if(!isset($_SESSION['usuario'])){
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Registro</a></li>
         <li><a href="#">Alta</a></li>
-        <li><a href="#">Reporte</a></li>
+        <li><a href="#">Reporta</a></li>
     </ul>
     <div class="container">
         <h3>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?>!</h3>
