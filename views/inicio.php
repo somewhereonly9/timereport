@@ -29,7 +29,7 @@ if(!isset($_SESSION['usuario'])){
         <li><a href="#">Informes</a></li>
     </ul>
     <div class="container">
-        <h3>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['nombre']) ?>!</h3>
+        <h3>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['username']) ?>!</h3>
         <a href="../controllers/AuthController.php?logout=true" class="btn btn-danger">Cerrar Sesión</a>
     </div>
 </nav>
@@ -54,9 +54,11 @@ if(!isset($_SESSION['usuario'])){
                 <label for="Tarea">Tareas</label>
                 <input type="text" class="form-control" id="tarea" name="tarea" required>
             </div>
+            <!-- Usuario: send user_id as hidden, display username readonly -->
+            <input type="hidden" name="user_id" value="<?= htmlspecialchars($_SESSION['usuario']['id']) ?>">
             <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" value="<?= htmlspecialchars($_SESSION['usuario']['nombre']) ?>" readonly>
+                <label for="usuario_display" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="usuario_display" value="<?= htmlspecialchars($_SESSION['usuario']['username']) ?>" readonly>
             </div>
             <div class="mb-3">
                 <label for="actividad" class="form-label">Actividad</label>

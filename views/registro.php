@@ -12,7 +12,7 @@
             <h4>Registro Usuario</h4>
             <form action="../controllers/AuthController.php" method="POST">
                 <input type="hidden" name="registro" value="1">
-                <input type="text" class="form-control mb-2" placeholder="Nombre" name="nombre" required>
+                <input type="text" class="form-control mb-2" placeholder="Usuario" name="username" required>
                 <input type="email" class="form-control mb-2" placeholder="Email" name="email" required>
                 <input type="password" class="form-control mb-2" placeholder="Contraseña" name="password" required>
                 <button type="submit" class="btn btn-success w-100">Registrarse</button>

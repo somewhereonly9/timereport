@@ -5,7 +5,7 @@ session_start();
 $usuarioModelo = new Usuario();
 
 if(isset($_POST['registro'])){
-    $usuarioModelo->registrar($_POST['nombre'], $_POST['email'], $_POST['password']);
+    $usuarioModelo->registrar($_POST['username'], $_POST['email'], $_POST['password']);
     header("Location: ../views/login.php");
 }
 
