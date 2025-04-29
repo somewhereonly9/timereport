@@ -24,7 +24,7 @@ if(!isset($_SESSION['usuario'])){
 <nav>
     <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Registro</a></li>
+        <li><a href="../views/registro.php">Registro</a></li>
         <li><a href="#">Alta</a></li>
         <li><a href="#">Informes</a></li>
     </ul>

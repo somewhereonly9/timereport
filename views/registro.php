@@ -17,6 +17,7 @@
                 <input type="password" class="form-control mb-2" placeholder="Contraseña" name="password" required>
                 <button type="submit" class="btn btn-success w-100">Registrarse</button>
                 <a href="login.php" class="btn btn-link w-100 mt-2">Volver a Login</a>
+                <a href="../views/inicio.php" class="btn btn-link w-100 mt-2">Volver a inicio</a>
             </form>
         </div>
     </div>
