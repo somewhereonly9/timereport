@@ -59,15 +59,14 @@ main {
     padding: 20px;
 }
 
-.container {
+.nav-user-container {
     display: flex;
     align-items: center; /* Alinea verticalmente el contenido */
     gap: 10px; /* Espacia los elementos dentro del contenedor */
-    margin-left: auto; /* Empuja el contenedor hacia el lado derecho */
     height: 100%; /* Asegura que ocupe toda la altura del nav */
 }
 
-.container h3 {
+.nav-user-container h3 {
     margin: 0; /* Elimina márgenes para evitar desbordes */
     color: white; /* Asegura que el texto sea visible */
     font-size: 16px; /* Ajusta el tamaño del texto */
@@ -75,7 +74,7 @@ main {
     align-items: center; /* Centra verticalmente el texto */
 }
 
-.container .btn {
+.nav-user-container .btn {
     padding: 5px 10px; /* Ajusta el tamaño del botón */
     font-size: 14px; /* Ajusta el tamaño del texto del botón */
     height: auto; /* Permite que el botón se ajuste automáticamente */
@@ -150,4 +149,10 @@ footer {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 10px;
+    }
 }

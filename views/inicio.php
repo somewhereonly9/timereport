@@ -28,7 +28,7 @@ if(!isset($_SESSION['usuario'])){
         <li><a href="#">Alta</a></li>
         <li><a href="#">Informes</a></li>
     </ul>
-    <div class="container form-container">
+    <div class="nav-user-container">
         <h3>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['username']) ?>!</h3>
         <a href="../controllers/AuthController.php?logout=true" class="btn btn-danger">Cerrar Sesión</a>
     </div>
@@ -38,7 +38,7 @@ if(!isset($_SESSION['usuario'])){
 <main>
     <h2>Bienvenido a mi aplicación web</h2>
     <p>Aquí va el contenido central de tu página.</p>
-    <div class="container">
+    <div class="form-container">
     <h3>Registro de actividades</h3>
     <div>
         <form action="" method="post">
