@@ -146,3 +146,8 @@ footer {
     color: #2563eb;
     font-size: 18px;
 }
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}

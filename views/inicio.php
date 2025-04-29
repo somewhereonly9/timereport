@@ -28,7 +28,7 @@ if(!isset($_SESSION['usuario'])){
         <li><a href="#">Alta</a></li>
         <li><a href="#">Informes</a></li>
     </ul>
-    <div class="container">
+    <div class="container form-container">
         <h3>Bienvenido, <?= htmlspecialchars($_SESSION['usuario']['username']) ?>!</h3>
         <a href="../controllers/AuthController.php?logout=true" class="btn btn-danger">Cerrar Sesión</a>
     </div>
