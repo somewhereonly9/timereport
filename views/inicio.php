@@ -51,8 +51,8 @@ if(!isset($_SESSION['usuario'])){
                 <input type="text" class="form-control" id="proyecto" name="proyecto" required>
             </div>
             <div class="mb-3">
-                <label for="Tarea">Tareas</label>
-                <input type="text" class="form-control" id="tarea" name="tarea" required>
+                <label for="Tarea">Cliente</label>
+                <input type="text" class="form-control" id="cliente" name="cliente" required>
             </div>
             <!-- Usuario: send user_id as hidden, display username readonly -->
             <input type="hidden" name="user_id" value="<?= htmlspecialchars($_SESSION['usuario']['id']) ?>">
