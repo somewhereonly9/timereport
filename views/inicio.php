@@ -36,8 +36,8 @@ if(!isset($_SESSION['usuario'])){
 
 <!-- Contenido principal -->
 <main>
-    <h2>Bienvenido a mi aplicación web</h2>
-    <p>Aquí va el contenido central de tu página.</p>
+    <h2>Welcome</h2>
+    <p>Registra las actividades mediante el siguiente formulario.</p>
     <div class="form-container">
     <h3>Registro de actividades</h3>
     <div>

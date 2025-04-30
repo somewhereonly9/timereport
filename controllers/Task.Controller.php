@@ -1,3 +1,4 @@
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = [
         'project_id' => $_POST['proyecto'],
@@ -14,3 +15,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../views/inicio.php?error=true");
     }
 }
+
+?>

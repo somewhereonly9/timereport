@@ -1,3 +1,5 @@
+<?php
+
 public function registrarTarea($data) {
     $sql = "INSERT INTO tasks (project_id, company_id, name, description, date, assigned_to) 
             VALUES (:project_id, :company_id, :name, :description, :date, :assigned_to)";
@@ -11,3 +13,5 @@ public function registrarTarea($data) {
         ':assigned_to' => $data['assigned_to']
     ]);
 }
+
+?>
