@@ -1,6 +1,23 @@
 <?php
 
-public function registrarTarea($data) {
+require_once "Conexion.php";
+class Task extends Conexion {
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    // Function to get all tasks
+    public function obtenerTareas($id) {
+        $sql = "SELECT * FROM tasks WHERE project_id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Function to register a task
+
+    public function registrarTarea($data) {
     $sql = "INSERT INTO tasks (project_id, company_id, name, description, date, assigned_to) 
             VALUES (:project_id, :company_id, :name, :description, :date, :assigned_to)";
     $stmt = $this->conn->prepare($sql);
@@ -12,6 +29,6 @@ public function registrarTarea($data) {
         ':date' => $data['date'],
         ':assigned_to' => $data['assigned_to']
     ]);
+    }
 }
-
 ?>

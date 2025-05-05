@@ -41,7 +41,7 @@ if(!isset($_SESSION['usuario'])){
     <div class="form-container">
     <h3>Registro de actividades</h3>
     <div>
-        <form action="" method="post">
+        <form action="../controllers/Task.Controller.php" method="POST">
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha" required>
