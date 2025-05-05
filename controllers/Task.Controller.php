@@ -1,26 +1,28 @@
 <?php
 
-require_once "../models/Task.Model.php";
-
-
-
+require_once "../models/Task.php";
 
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validar los datos recibidos
     $data = [
-        'project_id' => $_POST['proyecto'],
-        'company_id' => $_POST['cliente'],
-        'name' => $_POST['actividad'],
-        'description' => $_POST['actividad'],
-        'date' => $_POST['fecha'],
-        'assigned_to' => $_SESSION['usuario']['id'],
+        'project_id' => $_POST['project_id'],
+        'company_id' => $_POST['company_id'],
+        'name' => $_POST['name'],
+        'description' => $_POST['description'],
+        'date' => $_POST['date'],
+        'assigned_to' => $_POST['assigned_to']
     ];
-    
-    if ($taskModel->registrarTarea($data)) {
-        header("Location: ../views/inicio.php?success=true");
+
+    // Instanciar el modelo y registrar la tarea
+    $taskModel = new Task();
+    $result = $taskModel->registrarTarea($data);
+
+    if ($result) {
+        echo "Task registered successfully!";
     } else {
-        header("Location: ../views/inicio.php?error=true");
+        echo "Failed to register task.";
     }
 }
 

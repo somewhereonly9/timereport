@@ -2,11 +2,6 @@
 
 require_once "Conexion.php";
 class Task extends Conexion {
-
-    public function __construct() {
-        parent::__construct();
-    }
-
     // Function to get all tasks
     public function obtenerTareas($id) {
         $sql = "SELECT * FROM tasks WHERE project_id = :id";
