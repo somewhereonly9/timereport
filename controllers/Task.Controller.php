@@ -1,29 +1,39 @@
 <?php
-
-require_once "../models/Task.php";
-
-
+require_once __DIR__ . "/../models/Task.php";
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar los datos recibidos
+    // Validar que todos los campos requeridos estén presentes
+    $requiredFields = ['fecha', 'proyecto', 'cliente', 'user_id', 'actividad', 'work_minutes'];
+    foreach ($requiredFields as $field) {
+        if (empty($_POST[$field])) {
+            die("Error: Missing required field '$field'.");
+        }
+    }
+
+    // Mapear los datos del formulario a los campos esperados por el modelo
     $data = [
-        'project_id' => $_POST['project_id'],
-        'company_id' => $_POST['company_id'],
-        'name' => $_POST['name'],
-        'description' => $_POST['description'],
-        'date' => $_POST['date'],
-        'assigned_to' => $_POST['assigned_to']
+        'project_id' => htmlspecialchars($_POST['proyecto']),
+        'company_id' => htmlspecialchars($_POST['cliente']),
+        'name' => 'Tarea',
+        'description' => htmlspecialchars($_POST['actividad']),
+        'date' => htmlspecialchars($_POST['fecha']),
+        'assigned_to' => htmlspecialchars($_POST['user_id']),
+        'work_minutes' => intval($_POST['work_minutes']) // Convertir a entero
     ];
 
     // Instanciar el modelo y registrar la tarea
-    $taskModel = new Task();
-    $result = $taskModel->registrarTarea($data);
+    try {
+        $taskModel = new Task();
+        $result = $taskModel->registrarTarea($data);
 
-    if ($result) {
-        echo "Task registered successfully!";
-    } else {
-        echo "Failed to register task.";
+        if ($result) {
+            echo "Task registered successfully!";
+        } else {
+            echo "Failed to register task.";
+        }
+    } catch (Exception $e) {
+        echo "Error: " . $e->getMessage();
     }
 }
-
 ?>

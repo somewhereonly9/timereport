@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextWeekBtn = document.getElementById('nextWeek');
     const weekRangeDisplay = document.getElementById('weekRange');
     const dayHeaders = document.querySelectorAll('.day-header');
+    const hoursDisplay = document.getElementById('hoursDisplay');
+    const minutesDisplay = document.getElementById('minutesDisplay');
+    const workMinutesInput = document.getElementById('workMinutes');
     
     let currentWeekStart = new Date();
     currentWeekStart.setDate(currentWeekStart.getDate() - currentWeekStart.getDay() + 1); // Lunes de la semana actual
@@ -175,11 +178,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Event listeners para los controles de tiempo
-        document.querySelectorAll('.time-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.getAttribute('data-target');
-                const isIncrease = btn.classList.contains('increase');
-                updateTimeDisplay(target, isIncrease);
+        document.querySelectorAll('.time-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+                const isIncrease = button.classList.contains('increase');
+                updateTime(target, isIncrease);
             });
         });
         
@@ -211,8 +214,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Establecer las horas y minutos
                 const hours = Math.floor(task.minutes / 60);
                 const minutes = task.minutes % 60;
-                document.getElementById('hoursDisplay').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutesDisplay').textContent = minutes.toString().padStart(2, '0');
+                hoursDisplay.textContent = hours.toString().padStart(2, '0');
+                minutesDisplay.textContent = minutes.toString().padStart(2, '0');
+                
+                // Actualizar el campo oculto con el total en minutos
+                workMinutesInput.value = task.minutes;
                 
                 // Establecer el ID de la tarea en el formulario
                 taskForm.setAttribute('data-task-id', taskId);
@@ -221,8 +227,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Resetear el formulario para una nueva tarea
             taskForm.reset();
-            document.getElementById('hoursDisplay').textContent = '00';
-            document.getElementById('minutesDisplay').textContent = '00';
+            hoursDisplay.textContent = '00';
+            minutesDisplay.textContent = '00';
+            workMinutesInput.value = '0';
             taskForm.removeAttribute('data-task-id');
             document.getElementById('deleteTask').style.display = 'none';
         }
@@ -239,9 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const project = document.getElementById('taskProject').value;
         const type = document.getElementById('taskType').value;
         const description = document.getElementById('taskDescription').value;
-        const hours = parseInt(document.getElementById('hoursDisplay').textContent);
-        const minutes = parseInt(document.getElementById('minutesDisplay').textContent);
-        const totalMinutes = hours * 60 + minutes;
+        const totalMinutes = parseInt(workMinutesInput.value);
         
         if (!description) {
             alert('Por favor, ingresa una descripción para la tarea.');
@@ -389,25 +394,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Función para actualizar la visualización del tiempo
-    function updateTimeDisplay(target, isIncrease) {
-        const display = document.getElementById(`${target}Display`);
-        let value = parseInt(display.textContent);
-        
+    function updateTime(target, isIncrease) {
+        let value = target === 'hours'
+            ? parseInt(hoursDisplay.textContent)
+            : parseInt(minutesDisplay.textContent);
+
         if (isIncrease) {
             if (target === 'hours') {
-                value = (value + 1) % 24;
+                value = (value + 1) % 24; // Máximo 23 horas
             } else {
                 value = (value + 15) % 60; // Incrementar en bloques de 15 minutos
             }
         } else {
             if (target === 'hours') {
-                value = (value - 1 + 24) % 24;
+                value = (value - 1 + 24) % 24; // Decrementar con límite 0
             } else {
-                value = (value - 15 + 60) % 60; // Decrementar en bloques de 15 minutos
+                value = (value - 15 + 60) % 60; // Decrementar con límite 0
             }
         }
-        
-        display.textContent = value.toString().padStart(2, '0');
+
+        // Actualizar la visualización
+        if (target === 'hours') {
+            hoursDisplay.textContent = value.toString().padStart(2, '0');
+        } else {
+            minutesDisplay.textContent = value.toString().padStart(2, '0');
+        }
+
+        // Actualizar el campo oculto con el total en minutos
+        const totalMinutes = parseInt(hoursDisplay.textContent) * 60 + parseInt(minutesDisplay.textContent);
+        workMinutesInput.value = totalMinutes;
     }
     
     // Funciones de utilidad para formatear fechas

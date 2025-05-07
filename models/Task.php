@@ -1,6 +1,7 @@
 <?php
 
 require_once "Conexion.php";
+
 class Task extends Conexion {
     // Function to get all tasks
     public function obtenerTareas($id) {

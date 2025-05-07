@@ -51,10 +51,9 @@ if(!isset($_SESSION['usuario'])){
                 <input type="text" class="form-control" id="proyecto" name="proyecto" required>
             </div>
             <div class="mb-3">
-                <label for="Tarea">Cliente</label>
+                <label for="cliente">Cliente</label>
                 <input type="text" class="form-control" id="cliente" name="cliente" required>
             </div>
-            <!-- Usuario: send user_id as hidden, display username readonly -->
             <input type="hidden" name="user_id" value="<?= htmlspecialchars($_SESSION['usuario']['id']) ?>">
             <div class="mb-3">
                 <label for="usuario_display" class="form-label">Usuario</label>
@@ -65,25 +64,25 @@ if(!isset($_SESSION['usuario'])){
                 <textarea class="form-control" id="actividad" name="actividad" rows="4" required></textarea>
             </div>
             <div class="form-group">
-                            <label>HORAS TRABAJADAS</label>
-                            <div class="time-input">
-                                <div class="time-display">
-                                    <span id="hoursDisplay">00</span>:<span id="minutesDisplay">00</span>
-                                </div>
-                                <div class="time-controls">
-                                    <div class="time-control-group">
-                                        <button type="button" class="time-btn decrease" data-target="hours">−</button>
-                                        <button type="button" class="time-btn increase" data-target="hours">+</button>
-                                    </div>
-                                    <div class="time-control-group">
-                                        <button type="button" class="time-btn decrease" data-target="minutes">−</button>
-                                        <button type="button" class="time-btn increase" data-target="minutes">+</button>
-                                    </div>
-                                </div>
-                                <button type="button" class="time-start-btn">▶</button>
-                            </div>
+                <label>HORAS TRABAJADAS</label>
+                <div class="time-input">
+                    <div class="time-display">
+                        <span id="hoursDisplay">00</span>:<span id="minutesDisplay">00</span>
+                    </div>
+                    <div class="time-controls">
+                        <div class="time-control-group">
+                            <button type="button" class="time-btn decrease" data-target="hours">−</button>
+                            <button type="button" class="time-btn increase" data-target="hours">+</button>
                         </div>
-
+                        <div class="time-control-group">
+                            <button type="button" class="time-btn decrease" data-target="minutes">−</button>
+                            <button type="button" class="time-btn increase" data-target="minutes">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Campo oculto para almacenar las horas trabajadas en minutos -->
+            <input type="hidden" id="workMinutes" name="work_minutes" value="0">
             <button type="submit" class="btn btn-primary">Registrar Actividad</button>
         </form>
     </div>
