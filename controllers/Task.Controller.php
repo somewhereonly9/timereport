@@ -1,6 +1,11 @@
 <?php
-require_once __DIR__ . "/../models/Task.php";
+require_once __DIR__ . '/../models/Task.php';
 session_start();
+
+//$taskModel = new Task();
+
+$tasktarea = new Task();
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar que todos los campos requeridos estén presentes

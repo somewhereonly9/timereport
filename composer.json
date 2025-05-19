@@ -1,0 +1,15 @@
+{
+    "name": "dev/timereport",
+    "autoload": {
+        "psr-4": {
+            "Dev\\Timereport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "somewhereonly9",
+            "email": "somewhereonlyou@gmail.com"
+        }
+    ],
+    "require": {}
+}
