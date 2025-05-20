@@ -2,7 +2,8 @@
     "name": "dev/timereport",
     "autoload": {
         "psr-4": {
-            "Dev\\Timereport\\": "src/"
+            "App\\Controllers\\": "app/controllers/",
+            "App\\Models\\": "app/models/"
         }
     },
     "authors": [

@@ -1,5 +1,8 @@
 <?php
-require_once "../models/Usuario.php";
+namespace App\Controllers;
+require 'vendor/autoload.php';
+
+use App\Models\Usuario;
 session_start();
 
 $usuarioModelo = new Usuario();

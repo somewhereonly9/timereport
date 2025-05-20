@@ -1,5 +1,9 @@
 <?php
-require_once "Conexion.php";
+namespace App\Models;
+
+use PDO;
+
+require_once __DIR__ . "/Conexion.php";
 
 class Usuario extends Conexion {
 
