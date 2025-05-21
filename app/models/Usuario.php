@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-
+require __DIR__ . '/vendor/autoload.php';
 use PDO;
 
 require_once __DIR__ . "/Conexion.php";

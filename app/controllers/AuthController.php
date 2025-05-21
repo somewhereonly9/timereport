@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use App\Models\Usuario;
 session_start();
