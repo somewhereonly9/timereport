@@ -1,1 +1,4 @@
 /vendor/
+# Ignora archivos del sistema Mac 
+.DS_Store
+include/conexion.php
