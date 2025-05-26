@@ -1,1 +1,7 @@
 /vendor/
+git rm --cached include/conexion.php
+git add .gitignore
+git commit -m "Ignorar conexion.php para evitar secretos"
+
+# Ignora archivos del sistema Mac 
+.DS_store
