@@ -14,7 +14,7 @@ session_start();
         <form action="revisar.login.php" method="POST">
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required><br><br>
-            <label for="password">Contraseña:</label>
+            <label for="password">Contraseñaa:</label>
             <input type="password" id="password" name="password" required><br><br>
             <button type="submit">Entrar</button>
         </form>
