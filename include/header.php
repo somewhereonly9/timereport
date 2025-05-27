@@ -17,6 +17,7 @@
         <li><a href="registro.php">Registro</a></li>
         <li><a href="consulta.php">Consulta</a></li>
         <li><a href="#">Informes</a></li>
+        <li><a href="configuracion.php">Configuración</a></li>
     </ul>
     <div class="nav-user-container">
         <h3>Bienvenido, <?php echo htmlspecialchars($nombre); ?>!</h3>
