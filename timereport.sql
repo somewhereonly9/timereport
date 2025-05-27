@@ -159,20 +159,23 @@ CREATE TABLE IF NOT EXISTS projects (
 
 -- 6.1 Tareas
 CREATE TABLE IF NOT EXISTS tasks (
-  id           INT AUTO_INCREMENT PRIMARY KEY,
-  project_id   INT NOT NULL,
-  company_id   INT,
-  name         VARCHAR(255),
-  description  TEXT,
-  date         DATE,
-  assigned_to  INT NOT NULL,
-  hours_worked INT NOT NULL,
-  minutes_worked INT NOT NULL,
+  id               INT AUTO_INCREMENT PRIMARY KEY,
+  project_id       INT NOT NULL,
+  company_id       INT,
+  name             VARCHAR(255),
+  description      TEXT,
+  date             DATE,
+  assigned_to      INT NOT NULL,
+  team_id          INT, -- ← nueva columna
+  hours_worked     INT NOT NULL,
+  minutes_worked   INT NOT NULL,
   FOREIGN KEY (project_id)  REFERENCES projects(id),
   FOREIGN KEY (company_id)  REFERENCES companies(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (assigned_to) REFERENCES users(id),
+  FOREIGN KEY (team_id)     REFERENCES teams(id), -- ← nueva FK
   INDEX idx_tasks_project(project_id),
-  INDEX idx_tasks_assigned_to(assigned_to)
+  INDEX idx_tasks_assigned_to(assigned_to),
+  INDEX idx_tasks_team(team_id) -- ← nuevo índice
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 6.2 Eventos de Calendario
