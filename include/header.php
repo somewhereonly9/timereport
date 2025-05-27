@@ -17,7 +17,15 @@
         <li><a href="registro.php">Registro</a></li>
         <li><a href="consulta.php">Consulta</a></li>
         <li><a href="#">Informes</a></li>
-        <li><a href="configuracion.php">Configuración</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Configuración</a>
+            <div class="dropdown-content">
+                <a href="proyectos.php">Proyectos</a>
+                <a href="clientes.php">Clientes</a>
+                <a href="usuarios.php">Usuarios</a>
+                <a href="tarifas.php">Tarifas</a>
+            </div>
+        </li>
     </ul>
     <div class="nav-user-container">
         <h3>Bienvenido, <?php echo htmlspecialchars($nombre); ?>!</h3>

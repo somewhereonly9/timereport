@@ -330,3 +330,50 @@ footer {
     font-size:18px;
 }
 /* ------------------------------------------------------------------ */
+/* Dropdown menu in nav */
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+nav .dropdown .dropbtn {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    flex-direction: column;
+}
+
+nav .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+nav .dropdown:hover .dropbtn {
+    background-color: #575757;
+}
