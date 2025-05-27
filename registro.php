@@ -30,7 +30,7 @@ require_once __DIR__ . '/include/header.php';
         <input type="text" id="last_name" name="last_name" required><br><br>
         <button type="submit">Registrar</button>
     </form>
-    <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p>
+    <!-- <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p> -->
 
 <?php
 include_once 'include/footer.php';
