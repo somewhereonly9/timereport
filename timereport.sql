@@ -162,8 +162,9 @@ CREATE TABLE IF NOT EXISTS tasks (
   id               INT AUTO_INCREMENT PRIMARY KEY,
   project_id       INT NOT NULL,
   company_id       INT,
-  name             VARCHAR(255),
+  case_id          INT, -- ← relación con expediente
   description      TEXT,
+  result           TEXT, -- ← NUEVO campo para el resultado
   date             DATE,
   assigned_to      INT NOT NULL,
   team_id          INT, -- ← nueva columna
@@ -173,9 +174,11 @@ CREATE TABLE IF NOT EXISTS tasks (
   FOREIGN KEY (company_id)  REFERENCES companies(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (assigned_to) REFERENCES users(id),
   FOREIGN KEY (team_id)     REFERENCES teams(id), -- ← nueva FK
+  FOREIGN KEY (case_id)      REFERENCES cases(idCase),
   INDEX idx_tasks_project(project_id),
   INDEX idx_tasks_assigned_to(assigned_to),
   INDEX idx_tasks_team(team_id) -- ← nuevo índice
+  INDEX idx_tasks_case(case_id),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 6.2 Eventos de Calendario
