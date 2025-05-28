@@ -177,8 +177,8 @@ CREATE TABLE IF NOT EXISTS tasks (
   FOREIGN KEY (case_id)      REFERENCES cases(idCase),
   INDEX idx_tasks_project(project_id),
   INDEX idx_tasks_assigned_to(assigned_to),
-  INDEX idx_tasks_team(team_id) -- ← nuevo índice
-  INDEX idx_tasks_case(case_id),
+  INDEX idx_tasks_team(team_id), -- ← nuevo índice
+  INDEX idx_tasks_case(case_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- 6.2 Eventos de Calendario
