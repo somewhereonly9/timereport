@@ -59,10 +59,6 @@ require_once __DIR__ . '/include/header.php';
                 </div>
                 <input type="hidden" name="first_name" value="<?= htmlspecialchars($user['first_name']) ?>">
                 <div class="mb-3">
-                    <label for="first_name_display" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="first_name_display" value="<?= htmlspecialchars($user['first_name']) ?>" readonly>
-                </div>
-                <div class="mb-3">
                     <label for="actividad" class="form-label">Actividad</label>
                     <textarea class="form-control" id="actividad" name="actividad" rows="4" required></textarea>
                 </div>
